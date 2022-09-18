@@ -62,3 +62,5 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'devise-semantified', git: 'https://github.com/ajex13/devise-semantified.git'
 
 gem "chartkick"
+
+gem 'jsonapi-serializer'
