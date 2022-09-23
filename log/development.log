@@ -15229,3 +15229,227 @@ Your manifest contains:
     13: 
   
 app/views/layouts/application.html.erb:10
+Started GET "/" for 172.21.0.1 at 2022-09-23 21:28:15 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacanciesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vacancies/index.html.erb within layouts/application
+  [1m[35m (17.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", false]]
+  ↳ app/views/vacancies/index.html.erb:33
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", true]]
+  ↳ app/views/vacancies/index.html.erb:44
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies"[0m
+  ↳ app/views/vacancies/index.html.erb:56
+  [1m[36mVacancy Load (0.4ms)[0m  [1m[34mSELECT "vacancies".* FROM "vacancies" ORDER BY "vacancies"."status" ASC[0m
+  ↳ app/views/vacancies/index.html.erb:94:in `each_with_index'
+  [1m[36mPosition Load (4.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/vacancies/index.html.erb:178
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33:in `current_user'
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "jokes"[0m
+  ↳ app/helpers/joke_helper.rb:3:in `random_joke'
+  [1m[36mJoke Load (0.2ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes" ORDER BY "jokes"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 6]]
+  ↳ app/helpers/joke_helper.rb:5:in `random_joke'
+  Rendered vacancies/index.html.erb within layouts/application (Duration: 185.0ms | Allocations: 25270)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+ERROR: [Errno 21] Is a directory: 'bin'
+CRITICAL:root:Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /myapp/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/cliapp/app.py", line 182, in _run
+    self.settings.load_configs()
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 829, in load_configs
+    self._read_ini(pathname, f)
+  File "/usr/lib/python2.7/dist-packages/cliapp/settings.py", line 838, in _read_ini
+    cp.readfp(f)
+  File "/usr/lib/python2.7/ConfigParser.py", line 324, in readfp
+    self._read(fp, filename)
+  File "/usr/lib/python2.7/ConfigParser.py", line 512, in _read
+    raise MissingSectionHeaderError(fpname, lineno, line)
+MissingSectionHeaderError: File contains no section headers.
+file: /myapp/config/webpack/development.js, line: 1
+"process.env.NODE_ENV = process.env.NODE_ENV || 'development'\n"
+
+  Rendered layout layouts/application.html.erb (Duration: 972.4ms | Allocations: 30229)
+Completed 500 Internal Server Error in 1094ms (ActiveRecord: 51.8ms | Allocations: 35147)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /myapp/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 172.21.0.1 at 2022-09-23 21:29:05 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by VacanciesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vacancies/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", false]]
+  ↳ app/views/vacancies/index.html.erb:33
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", true]]
+  ↳ app/views/vacancies/index.html.erb:44
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies"[0m
+  ↳ app/views/vacancies/index.html.erb:56
+  [1m[36mVacancy Load (0.6ms)[0m  [1m[34mSELECT "vacancies".* FROM "vacancies" ORDER BY "vacancies"."status" ASC[0m
+  ↳ app/views/vacancies/index.html.erb:94:in `each_with_index'
+  [1m[36mPosition Load (0.5ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/vacancies/index.html.erb:178
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33:in `current_user'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "jokes"[0m
+  ↳ app/helpers/joke_helper.rb:3:in `random_joke'
+  [1m[36mJoke Load (0.4ms)[0m  [1m[34mSELECT "jokes".* FROM "jokes" ORDER BY "jokes"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 0]]
+  ↳ app/helpers/joke_helper.rb:5:in `random_joke'
+  Rendered vacancies/index.html.erb within layouts/application (Duration: 93.8ms | Allocations: 9032)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", false]]
+  ↳ app/views/shared/_navigation_bar.html.erb:7
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", false]]
+  ↳ app/views/shared/_navigation_bar.html.erb:13
+  Rendered shared/_navigation_bar.html.erb (Duration: 21.1ms | Allocations: 2178)
+  Rendered layout layouts/application.html.erb (Duration: 134.0ms | Allocations: 12012)
+Completed 200 OK in 146ms (Views: 133.1ms | ActiveRecord: 7.1ms | Allocations: 13804)
+
+
+Started DELETE "/users/sign_out" for 172.21.0.1 at 2022-09-23 21:29:09 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3003/
+Completed 302 Found in 28ms (ActiveRecord: 0.3ms | Allocations: 2426)
+
+
+Started GET "/" for 172.21.0.1 at 2022-09-23 21:29:09 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by VacanciesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vacancies/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", false]]
+  ↳ app/views/vacancies/index.html.erb:33
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", true]]
+  ↳ app/views/vacancies/index.html.erb:44
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies"[0m
+  ↳ app/views/vacancies/index.html.erb:56
+  [1m[36mVacancy Load (0.4ms)[0m  [1m[34mSELECT "vacancies".* FROM "vacancies" ORDER BY "vacancies"."status" ASC[0m
+  ↳ app/views/vacancies/index.html.erb:94:in `each_with_index'
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/vacancies/index.html.erb:178
+  Rendered vacancies/index.html.erb within layouts/application (Duration: 27.1ms | Allocations: 7335)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 7400)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 2.6ms | Allocations: 7827)
+
+
+  
+ActionView::Template::Error (Couldn't find User without an ID):
+    194:   <div class="ui icon header">
+    195:     <i class="angellist icon"></i>
+    196:     <br>
+    197:     <h1 class="ui header" style="color:white">Здравствуй, <%= current_user.admin_prefix + current_user.name %>!</h1><br>
+    198:     <h3 class="ui header" style="color:white">"<%= random_joke %>"</h3><br>
+    199:     <h1 class="ui header" style="color:white">Хорошего дня!</h1>
+    200: 
+  
+app/controllers/application_controller.rb:33:in `current_user'
+app/views/vacancies/index.html.erb:197
+Started GET "/" for 172.21.0.1 at 2022-09-23 21:29:14 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by VacanciesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vacancies/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", false]]
+  ↳ app/views/vacancies/index.html.erb:33
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies" WHERE "vacancies"."status" = $1[0m  [["status", true]]
+  ↳ app/views/vacancies/index.html.erb:44
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "vacancies"[0m
+  ↳ app/views/vacancies/index.html.erb:56
+  [1m[36mVacancy Load (0.4ms)[0m  [1m[34mSELECT "vacancies".* FROM "vacancies" ORDER BY "vacancies"."status" ASC[0m
+  ↳ app/views/vacancies/index.html.erb:94:in `each_with_index'
+  [1m[36mPosition Load (0.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.4ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.3ms)[0m  [1m[34mSELECT "positions".* FROM "positions" WHERE "positions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/vacancies/index.html.erb:100
+  [1m[36mPosition Load (0.2ms)[0m  [1m[34mSELECT "positions".* FROM "positions"[0m
+  ↳ app/views/vacancies/index.html.erb:178
+  Rendered vacancies/index.html.erb within layouts/application (Duration: 41.3ms | Allocations: 7313)
+  Rendered layout layouts/application.html.erb (Duration: 43.8ms | Allocations: 7377)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 3.6ms | Allocations: 7798)
+
+
+  
+ActionView::Template::Error (Couldn't find User without an ID):
+    194:   <div class="ui icon header">
+    195:     <i class="angellist icon"></i>
+    196:     <br>
+    197:     <h1 class="ui header" style="color:white">Здравствуй, <%= current_user.admin_prefix + current_user.name %>!</h1><br>
+    198:     <h3 class="ui header" style="color:white">"<%= random_joke %>"</h3><br>
+    199:     <h1 class="ui header" style="color:white">Хорошего дня!</h1>
+    200: 
+  
+app/controllers/application_controller.rb:33:in `current_user'
+app/views/vacancies/index.html.erb:197
