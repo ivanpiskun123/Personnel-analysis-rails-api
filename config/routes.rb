@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'vacancies/index'
-
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
 
-
   ActiveAdmin.routes(self)
+
+  get 'vacancies/index'
 
   root 'vacancies#index'
 
