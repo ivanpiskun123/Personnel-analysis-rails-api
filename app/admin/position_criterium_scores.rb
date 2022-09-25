@@ -32,6 +32,7 @@ ActiveAdmin.register PositionCriteriumScore do
       end
 
     end
+    active_admin_comments
   end
 
 end

@@ -22,5 +22,6 @@ ActiveAdmin.register Joke do
         resource.body
       end
     end
+    active_admin_comments
   end
 end

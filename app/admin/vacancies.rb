@@ -42,6 +42,7 @@ ActiveAdmin.register Vacancy do
               end
            end
          end
-        end
+    end
+    active_admin_comments
     end
   end

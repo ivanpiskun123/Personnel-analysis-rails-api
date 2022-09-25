@@ -37,6 +37,7 @@ ActiveAdmin.register Criterium do
         column "Величина критерия",   :score
       end
     end
+    active_admin_comments
 
   end
 
