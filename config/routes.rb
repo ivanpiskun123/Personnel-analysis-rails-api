@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'vacancies/index'
 
-  root 'vacancies#index'
+  root 'candidates#index'
 
   resources :positions
   resources :criteria
