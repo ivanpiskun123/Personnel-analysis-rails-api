@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :name, :password, :password_confirmation, :is_admin
+  permit_params :email, :name, :password, :password_confirmation
   actions :index, :show
 
   index do
@@ -15,7 +15,6 @@ ActiveAdmin.register User do
 
   filter :email
   filter :name
-  filter :is_admin
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
@@ -23,7 +22,6 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs do
       f.input :email
-      f.input :is_admin
       f.input :name
       f.input :password
       f.input :password_confirmation
@@ -32,7 +30,7 @@ ActiveAdmin.register User do
   end
 
   show title: proc { "Работник" } do
-    h3 "#{resource.admin_prefix} #{resource.name}"
+    h3 "#{resource.name}"
 
     attributes_table do
       row "Имя" do

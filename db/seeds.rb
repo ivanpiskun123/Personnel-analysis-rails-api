@@ -22,13 +22,13 @@ def most_recent_date
 end
 
 User.create([
-  {email: "admin1@gmail.com", name: "Юрий", password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "admin2@gmail.com", name: "Анастасия",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "admin3@gmail.com", name: "Валентин",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "user1@gmail.com", name: "Петр",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "user2@gmail.com", name: "Каролина",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "user3@gmail.com", name: "Влентина",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
-  ])
+  {email: "user1@gmail.com", name: "Юрий", password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user2@gmail.com", name: "Анастасия",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user3@gmail.com", name: "Валентин",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user4@gmail.com", name: "Петр",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user5@gmail.com", name: "Каролина",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user6@gmail.com", name: "Вaлентина",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
+])
 
 Criterium.create([
   {name: "Личные качества"},
@@ -134,21 +134,6 @@ Candidate.update_all(created_at: most_recent_date)
       end
     end
 
-# jokes
-
-Joke.create!([
-  {body: "- Планирую через месяц скинуть 30 кг.
-          - Ого! А как?
-          - Отдам сына в школу!"},
-  {body: "Армянский атлет занял на Олимпиаде в Токио миллион иен."},
-  {body: "Все, что нас не убивает... то мутирует и снова попытается нас убить."},
-  {body: "Как вообще понять, что волынщик играет хорошо?"},
-  {body: "Боксеры лучше других знают, что в жизни больше всех достается людям, которые опускают руки."},
-  {body: "Основополагающая суть туризма - взять с собой побольше,
-          уйти подальше и там всё это быстро сожрать!"},
-  {body: "Никогда и не у кого ни проси орфографический словарь. Сами предложут и сами все додут."},
-  {body: "Оказывается, первым таблица Менделеева приснилась Гоголю, но он в ней ни хрена не понял и сжег..."},
-  {body: "Мир изменился: заказанная пицца приезжает быстрее вызванной скорой помощи."},
-  {body: "Глобальное потепление заключается в том, что все тепленькие места уже заняты."},
-  {body: "Летом все люди делятся на две категории - те, кто любит море и те, кто ненавидит тех, кто любит море."},
-  ])
+AdminUser.create!(name: "HR: Эльвира Викторовна",email: 'admin1@gmail.com', password: 'admin123', password_confirmation: 'admin123')
+AdminUser.create!(name: "HR: Кирилл Юрьевич",email: 'admin2@gmail.com', password: 'admin123', password_confirmation: 'admin123')
+AdminUser.create!(name: "HR: Андрей Евгениевич",email: 'admin3@gmail.com', password: 'admin123', password_confirmation: 'admin123')

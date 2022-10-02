@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
 
-  respond_to :json
-
   include ActionView::Layouts
   include ActionController::RequestForgeryProtection
 
@@ -18,11 +16,9 @@ class ApplicationController < ActionController::Base
 
   # Check for auth headers - if present, decode or send unauthorized response (called always to allow current_user)
   def process_token
-    token = request.headers['Authorization'] || (request.headers['referer']=="http://0.0.0.0:3001/" ? params["token"] : nil)
-    puts "\n\n\n#{token} - TOKEN \n\n\n"
-    if token
+    if request.headers['Authorization'].present?
       begin
-        jwt_payload = JWT.decode(token[1..-2], Rails.application.secrets.secret_key_base).first
+        jwt_payload = JWT.decode(request.headers['Authorization'][1..-2], Rails.application.secrets.secret_key_base).first
         @current_user_id = jwt_payload['id']
       rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
         head :unauthorized

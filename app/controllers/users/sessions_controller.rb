@@ -14,8 +14,7 @@ class Users::SessionsController < Devise::SessionsController
       render json:
                {
                  token:  token.to_json,
-                 user_id: user.id,
-                 is_admin: user.is_admin
+                 user_id: user.id
                }
     else
       render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
