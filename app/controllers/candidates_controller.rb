@@ -1,41 +1,9 @@
 class CandidatesController < ApplicationController
 
   def index
-
-    if params[:filter].nil?
-      if params[:vacancy_id].nil?
-        @prefix = "Все"
-        @c = Candidate.all
-      else
-        @c = Candidate.where(vacancy_id: params[:vacancy_id].to_i)
-        @prefix = "\"#{Vacancy.find(params[:vacancy_id].to_i).position.name}\""
-      end
-
-    else
-      case  params[:filter]
-      when "rejected"
-        @c = Candidate.where(status: 0)
-        @prefix = "Отклонённые"
-      when "reviewed"
-        @c = Candidate.where(status: 1)
-        @prefix = "Рассматриваемые"
-      when "accepted"
-        @c = Candidate.where(status: 2)
-        @prefix = "Принятые"
-      end
-    end
-
-    @cr = Criterium.all
-    @v = Vacancy.all
-
-    @data_chart = [["Приняты", Candidate.accepted.count],
-    ["Отклонены",Candidate.rejected.count],
-    ["Рассматриваются", Candidate.reviewed.count]]
-
-  end
-
-  def new
-
+    render json: {
+      data: CandidateSerializer.new(Candidate.all).serializable_hash
+    }, status: :ok
   end
 
   def update
@@ -58,17 +26,11 @@ class CandidatesController < ApplicationController
                 cand.save
             end
           end
-
-
-
         end
 
         respond_to do |format|
             format.js {render inline: "location.reload();" }
           end
-
-
-
   end
 
 
