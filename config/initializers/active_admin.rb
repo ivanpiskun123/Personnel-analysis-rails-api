@@ -54,7 +54,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = false
+  config.authentication_method = :authenticate_user!
 
   # == User Authorization
   #
@@ -100,7 +100,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the path where the link points to. If it's
   # a string, the strings is used as the path. If it's a Symbol, we
-  # will call the method to return the path.
+  # will call the method to return the path.s
   #
   # Default:
   config.logout_link_path = :destroy_user_session_path
