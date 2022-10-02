@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  default_url_options :host => "localhost"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, controllers: {
     sessions: 'users/sessions'

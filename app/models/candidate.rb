@@ -26,8 +26,7 @@ class Candidate < ApplicationRecord
   validates :second_name, presence: true
   validates :email, presence: true
   validates :number, presence: true
-
-    validates :number, uniqueness: true
+  # validates :number, uniqueness: true
 
 
     def score_sum
