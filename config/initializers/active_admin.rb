@@ -92,6 +92,8 @@ ActiveAdmin.setup do |config|
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
   config.current_user_method = :current_user
+  config.skip_before_action :authenticate_user!
+  config.skip_before_action :process_token
 
   # == Logging Out
   #

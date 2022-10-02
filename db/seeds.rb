@@ -22,12 +22,12 @@ def most_recent_date
 end
 
 User.create([
-  {email: "admin1@gmail.com", name: "Юрий", is_admin: true, password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "admin2@gmail.com", name: "Анастасия", is_admin: true, password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "admin3@gmail.com", name: "Валентин", is_admin: true, password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "user1@gmail.com", name: "Петр", is_admin: false, password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "user2@gmail.com", name: "Каролина", is_admin: false, password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
-  {email: "user3@gmail.com", name: "Влентина", is_admin: false, password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
+  {email: "admin1@gmail.com", name: "Юрий", password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "admin2@gmail.com", name: "Анастасия",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "admin3@gmail.com", name: "Валентин",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user1@gmail.com", name: "Петр",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user2@gmail.com", name: "Каролина",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid},
+  {email: "user3@gmail.com", name: "Влентина",  password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
   ])
 
 Criterium.create([

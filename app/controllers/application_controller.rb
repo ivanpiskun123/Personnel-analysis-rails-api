@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   # Check for auth headers - if present, decode or send unauthorized response (called always to allow current_user)
   def process_token
     token = request.headers['Authorization'] || (request.headers['referer']=="http://0.0.0.0:3001/" ? params["token"] : nil)
@@ -27,7 +28,6 @@ class ApplicationController < ActionController::Base
         head :unauthorized
       end
     end
-    puts current_user
   end
 
   # If user has not signed in, return unauthorized response (called only when auth is needed)
