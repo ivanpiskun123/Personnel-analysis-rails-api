@@ -28,10 +28,9 @@ class Candidate < ApplicationRecord
   validates :number, presence: true
   # validates :number, uniqueness: true
 
-
-    def score_sum
-      self.candidate_criterium_scores.to_a.sum(&:score)
-    end
+  def score_sum
+    self.candidate_criterium_scores.to_a.sum(&:score)
+  end
 
   def status_name
     case self.status
@@ -47,7 +46,5 @@ class Candidate < ApplicationRecord
   def to_s
     "#{first_name} #{second_name}: #{status_name.downcase}"
   end
-
-  private
 
 end
