@@ -35,47 +35,40 @@ class CandidatesController < ApplicationController
 
 
   def create
+    ActiveRecord::Base.transaction do
+      candidate = Candidate.create!({
+           first_name: params["candidate"]["firstName"],
+           second_name: params["candidate"]["secondName"],
+           email: params["candidate"]["email"],
+           number: params["candidate"]["number"],
+           expirience_years: params["candidate"]["expYears"].to_f,
+           biography: params["candidate"]["bio"],
+           vacancy_id: params["candidate"]["vacancyId"],
+           status: 1,
+           user_id: params["candidate"]["currentUserId"],
+           gender: params["candidate"]["gender"]=="1",
+       })
 
-    print params
-
-    if params[:gender]=="male"
-      male = true
-    else
-      male = false
+      params["candidate"]["scores"].each do |k,v|
+        CandidateCriteriumScore.create(
+          {
+            criterium_id: k,
+            candidate_id: candidate.id,
+            score: v
+          })
+      end
     end
+    render json: {
+      data: CandidateSerializer.new(Candidate.last).serializable_hash
+    }, status: :ok
 
-    @c = Candidate.new(
-      user: current_user,
-      first_name: params[:first_name],
-      second_name: params[:second_name],
-      email: params[:email],
-      number: params[:number],
-      expirience_years: params[:exp].to_f,
-      biography: params[:bio],
-      gender: male,
-      status: 1,
-      vacancy: Position.find_by_name(params[:vacancy_name]).vacancies.first
-    )
-
-    unless params[:candidate].nil?
-        @c.avatar = params[:candidate][:avatar]
-    end
-
-    @c.save
-
-    Criterium.all.each_with_index do |c, idx|
-      CandidateCriteriumScore.create(
-        score: params["criterium_#{idx+1}"].to_i,
-        candidate: Candidate.last,
-        criterium: c
-      )
-    end
-
-    redirect_to candidates_path
-
-
-
+    rescue StandardError => e
+      render json: {status: "error", code: 400,
+                    client_message: "Please check if typed data is correct",
+                    error_message: e.message}
   end
+
+
 
 
 

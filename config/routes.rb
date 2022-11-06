@@ -22,6 +22,5 @@ Rails.application.routes.draw do
 
   get "home/statistics"
 
-  match '*path' => redirect('/'), via: :get
 
 end

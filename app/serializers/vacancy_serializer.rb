@@ -3,6 +3,8 @@ class VacancySerializer
 
   attributes :status, :opening_date, :closing_date
 
-  belongs_to :position
+  belongs_to :position, meta: Proc.new{|v, params|
+    {name: v.position.name}
+  }
 
 end

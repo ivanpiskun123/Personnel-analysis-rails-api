@@ -1,7 +1,9 @@
 class CriteriaController < ApplicationController
 
   def index
-    @c = Criterium.all
+    render json: {
+      data: CriteriumSerializer.new(Criterium.all).serializable_hash
+    }, status: :ok
   end
 
   def create

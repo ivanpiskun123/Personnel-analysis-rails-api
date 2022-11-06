@@ -3,6 +3,7 @@ class PositionSerializer
 
   attributes :name, :created_at
 
-  has_many :position_criterium_scores
+  # TODO: specify meta data with score values
+  # has_many :position_criterium_scores
 
 end

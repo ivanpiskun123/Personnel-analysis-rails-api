@@ -7,4 +7,5 @@ class CandidateCriteriumScore < ApplicationRecord
                  message: "(%{value}) can't be less 1 and more 5" }
 
     validates :score, presence: true
+    validates :candidate_id, uniqueness: { scope: :criterium_id }
 end

@@ -4,5 +4,4 @@ class Criterium < ApplicationRecord
       validates :name, presence: true
 
   has_many :candidate_criterium_scores
-
 end
